@@ -113,6 +113,7 @@ class Facebook
              */
             // Graph API to request user data
             $request = ( new FacebookRequest($this->session, 'GET', '/me/feed'));
+                    //. '?since='.strtotime("-4 years").'&until='.strtotime("-4 years")));
             $response = $request->execute();
             // Get response as an array
             $user = $response->getGraphObject()->asArray();
