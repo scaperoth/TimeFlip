@@ -30,7 +30,7 @@ use Facebook\FacebookRequest;
 
 class Facebook
 {
-
+    const MAX_YEARS = 10;
     var $ci;
     var $helper;
     var $session;
@@ -104,22 +104,24 @@ class Facebook
     /**
      * Returns the current user's info as an array.
      */
-    public function get_user()
+    public function get_posts()
     {
         if ($this->session)
         {
+            $posts = array();
             /**
              * Retrieve User’s Profile Information
              */
             // Graph API to request user data
-            $request = ( new FacebookRequest($this->session, 'GET', '/me/feed'));
-                    //. '?since='.strtotime("-4 years").'&until='.strtotime("-4 years")));
-            $response = $request->execute();
-            // Get response as an array
-            $user = $response->getGraphObject()->asArray();
+            for ($i = 1; $i < Facebook::MAX_YEARS+1; $i++)
+            {
+                $request = ( new FacebookRequest($this->session, 'GET', '/me/feed?since='.strtotime("-$i years -1 day").'&until='.strtotime("-$i years ")));
+                $response = $request->execute();
+                // Get response as an array
+                $posts[]= $response->getGraphObject()->asArray();
+            }
 
-            
-            return $user;
+            return $posts;
         }
         return false;
     }
