@@ -29,8 +29,6 @@ class Pages extends CI_Controller
     public function view($page = 'home')
     {
         
-        $this->load->library('session');
-        $this->load->library('facebook');
 
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php'))
         {

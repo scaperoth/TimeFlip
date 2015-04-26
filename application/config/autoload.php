@@ -61,6 +61,8 @@ $autoload['packages'] = array();
 */
 
 $autoload['libraries'] = array(
+	'session',
+	'Facebook'
 );
 
 
@@ -106,7 +108,7 @@ $autoload['helper'] = array('url');
 */
 
 $autoload['config'] = array(
-    'facebook'
+    'Facebook'
 );
 
 

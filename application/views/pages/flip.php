@@ -1,6 +1,6 @@
 <style>
     .img{
-        width: 554px;
+        width: 100%;
         height: 298px;
         background-size: cover;
         background-position: center;

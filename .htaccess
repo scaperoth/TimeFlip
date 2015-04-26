@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
+Options +FollowSymLinks
         RewriteEngine On
         RewriteBase /
 
@@ -10,5 +11,5 @@
         # Directs all EE web requests through the site index file
         RewriteCond %{REQUEST_FILENAME} !-f
         RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule ^(.*)$ /TimeFlip/index.php/$1 [L]
+        RewriteRule ^(.*)$ TimeFlip/index.php?/$1 [L]
 </IfModule>
